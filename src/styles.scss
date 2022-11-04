@@ -1,1 +1,57 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+
+@include nb-install() {
+  @include nb-theme-global();
+};
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-shadow: 0 0 0 0;
+  border: 0;
+  font-family: Arial;
+  box-sizing: border-box;
+}
+
+.d-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.d-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.gap-5 {
+  display: flex;
+  gap: 5px !important;
+}
+
+.gap-10 {
+  display: flex;
+  gap: 10px !important;
+}
+
+.gap-15 {
+  display: flex;
+  gap: 15px !important;
+}
+
+.gap-20 {
+  display: flex;
+  gap: 20px !important;
+}

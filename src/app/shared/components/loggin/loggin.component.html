@@ -1,0 +1,19 @@
+<section class="login">
+  <div class="form-content d-column align-center">
+    <h3>Login</h3>
+    <form #formLogin="ngForm" (ngSubmit)="onSubmit()" class="d-column gap-15">
+      <div class="form-group d-column">
+        <input type="email" placeholder="Email" required [(ngModel)]="form.email" #email="ngModel" id="email" name="email">
+        <span [hidden]="email.valid || email.pristine" >O email é um campo Obrigatório</span>
+      </div>
+      <div class="form-group d-column">
+        <input type="password" placeholder="Password" required [(ngModel)]="form.password" #password="ngModel" id="password" name="password">
+        <span [hidden]="password.valid || password.pristine" >A senha é um campo Obrigatório</span>
+      </div>
+      <div class="d-flex justify-content-end">
+        <a href="">Esqueceu a senha?</a>
+      </div>
+      <button class="btn-login" [disabled]="!formLogin.form.valid">Entrar</button>
+    </form>
+  </div>
+</section>

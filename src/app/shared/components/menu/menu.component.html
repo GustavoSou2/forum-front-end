@@ -1,0 +1,39 @@
+<section class="app">
+  <header class="app-nav form-group">
+    <div class="app-nav-left-content align-center gap-5">
+      <button class="btn btn-light" (click)="menuState = true">
+        <nb-icon icon="menu"></nb-icon>
+      </button>
+      <span class="logo">ProDev.Community</span>
+    </div>
+    <div class="app-nav-right-content gap-5">
+      <button class="btn btn-light">
+        <nb-icon icon="bell-outline"></nb-icon>
+      </button>
+      <button class="btn btn-light">
+        <nb-icon icon="person-outline"></nb-icon>
+      </button>
+    </div>
+  </header>
+  <main class="app-content d-row gap-10">
+    <nav class="app-menu" (click)="menuState = false" [ngClass]="{ 'menu-active': menuState, 'menu-hide': !menuState }">
+      <ul class="menu pt-4 gap-15 d-column">
+        <li class="mb-4 d-flex align-center justify-content-between">
+          <span>ProDEV Community</span>
+          <button class="btn btn-light" (click)="menuState = false">
+            <nb-icon icon="close"></nb-icon>
+          </button>
+        </li>
+        <li *ngFor="let itemMenu of menu" class="menu-item ">
+          <a [routerLink]="[itemMenu.to]" class="w-100 align-center gap-10">
+            <nb-icon [icon]="itemMenu.icon" [status]="itemMenu.status"></nb-icon>
+            <span>{{ itemMenu.description }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <section class="content">
+      <ng-content></ng-content>
+    </section>
+  </main>
+</section>

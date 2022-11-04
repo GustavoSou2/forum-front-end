@@ -23,6 +23,20 @@
       "dom"
     ]
   },
+  "paths": {
+    "@pages/*": [
+      "src/pages/*"
+    ],
+    "@components/*": [
+      "src/shared/components/*"
+    ],
+    "@models/*": [
+      "src/shared/types/models/*"
+    ],
+    "@modules/*": [
+      "src/modules/*"
+    ]
+  },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
