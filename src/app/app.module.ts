@@ -6,17 +6,28 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import {NbEvaIconsModule} from "@nebular/eva-icons";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NbThemeModule, NbLayoutModule, NbIconModule, NbToastrModule, NbCardModule} from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbIconModule,
+  NbToastrModule,
+  NbCardModule, NbToastrService,
+} from '@nebular/theme';
 import { MenuComponent } from './shared/components/menu/menu.component';
-import { LogginComponent } from './shared/components/loggin/loggin.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {UserService} from "./http/modules/user/service/user.service";
+import {LoginComponent} from "./pages/login/login.component";
+import { CreateAccountComponent } from './pages/create-account/create-account.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    LogginComponent,
+    LoginComponent,
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,11 +37,15 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
-    NbToastrModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NbToastrModule.forRoot(),
+
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 
