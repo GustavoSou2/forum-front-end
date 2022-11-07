@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {RoutesValidatorService} from "../../helpers/routes-validator/routes-validator.service";
 import {LocalStorageService} from "../../helpers/local-storage/local-storage.service";
-import {NbToastrService} from "@nebular/theme";
+import {NbDialogService, NbToastrService} from "@nebular/theme";
+import {DialogServiceComponent} from "../../helpers/dialog-service/dialog-service.component";
+import {CreatePostComponent} from "../../../pages/create-post/create-post.component";
 
 interface IMenu {
   description: string;
@@ -15,7 +17,7 @@ interface IMenu {
   selector: 'menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  providers: [RoutesValidatorService, LocalStorageService]
+  providers: [RoutesValidatorService, LocalStorageService, DialogServiceComponent, NbDialogService]
 })
 export class MenuComponent implements OnInit {
   menuState: boolean = false;
@@ -48,11 +50,16 @@ export class MenuComponent implements OnInit {
   ]
 
   constructor(
-    private routesValidatorService: RoutesValidatorService
+    private routesValidatorService: RoutesValidatorService,
+    private dialogServiceComponent: DialogServiceComponent,
+    private dialogService: NbDialogService
   ) { }
 
   ngOnInit(): void {
     this.routesValidatorService.isLogged()
   }
 
+  createPost() {
+    this.dialogServiceComponent.openDialog(CreatePostComponent)
+  }
 }

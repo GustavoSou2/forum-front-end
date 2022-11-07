@@ -1,0 +1,11 @@
+<section class="home">
+  <label for="search" class="home-search form-group">
+    <input type="text" id="search" #search placeholder="Procurar..." class="form-content">
+  </label>
+  <div class="home-posts">
+    <div class="post-cards" *ngFor="let post of posts">
+      <h3>{{ post.title }}</h3>
+      <div [innerHTML]="post.message | safeHtml"></div>
+    </div>
+  </div>
+</section>

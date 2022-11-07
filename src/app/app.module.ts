@@ -11,14 +11,20 @@ import {
   NbLayoutModule,
   NbIconModule,
   NbToastrModule,
-  NbCardModule, NbToastrService,
+  NbCardModule,
+  NbDialogModule
 } from '@nebular/theme';
 import { MenuComponent } from './shared/components/menu/menu.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./http/modules/user/service/user.service";
 import {LoginComponent} from "./pages/login/login.component";
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
+import { DialogServiceComponent } from './shared/helpers/dialog-service/dialog-service.component';
+import {CommonModule} from "@angular/common";
+import {AngularEditorModule} from "@kolkov/angular-editor";
+import {Safe} from "./shared/helpers/safe/safe.pipe";
 
 
 @NgModule({
@@ -28,8 +34,12 @@ import { CreateAccountComponent } from './pages/create-account/create-account.co
     MenuComponent,
     LoginComponent,
     CreateAccountComponent,
+    CreatePostComponent,
+    DialogServiceComponent,
+    Safe,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     NbEvaIconsModule,
@@ -41,7 +51,9 @@ import { CreateAccountComponent } from './pages/create-account/create-account.co
     FormsModule,
     HttpClientModule,
     NbToastrModule.forRoot(),
-
+    NbDialogModule.forRoot(),
+    ReactiveFormsModule,
+    AngularEditorModule
   ],
   providers: [
     UserService

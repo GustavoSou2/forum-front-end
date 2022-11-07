@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://dev-forum-api.herokuapp.com'
+  baseUrl: 'https://dev-forum-api.herokuapp.com',
+  baseUrlLocal: 'http://localhost:3000'
 };
 
 /*

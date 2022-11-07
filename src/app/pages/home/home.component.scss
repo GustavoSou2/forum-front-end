@@ -1,0 +1,28 @@
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .home-posts {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+
+    .post-cards {
+      width: 90%;
+      margin: auto;
+      border: 1px solid #39393920;
+      border-radius: 0.3rem;
+      padding: 20px;
+    }
+  }
+}
+
+.home-search {
+  width: 85%;
+  margin: 20px auto 0;
+  border: 1px solid #39393930;
+  border-radius: 0.3rem;
+  padding: 7px;
+}

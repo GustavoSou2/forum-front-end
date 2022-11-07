@@ -1,0 +1,42 @@
+<div class="create-dialog">
+    <h3>Criar Post</h3>
+    <br>
+    <br>
+    <form #form="ngForm" class="d-column gap-15" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Título</label>
+        <input type="text" [(ngModel)]="_form.title" #title="ngModel" id="title" name="title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="title">Contém Links?</label>
+        <label for="links" class="send-box">
+          <input type="text" id="links" placeholder="Link" #link name="link">
+          <button class="btn btn-primary btn-sm" (click)="setLinks(link.value); link.value = ''">Add</button>
+        </label>
+        <div class="d-flex links-content" [hidden]="!_form.has_links">
+          <span *ngFor="let link of _form.links; let idx_links = index">
+            {{ idx_links + 1 }}° Link:
+            <a [href]="link">{{link}}</a>
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title">Contém Tags?</label>
+        <label for="tags" class="send-box">
+          <input type="text" id="tags" placeholder="Tag" #tag name="tags">
+          <button class="btn btn-primary btn-sm" (click)="setTags(tag.value); tag.value = ''">Add</button>
+        </label>
+        <div [hidden]="_form.tags.length == 0" class="d-flex tags-content">
+          <span *ngFor="let tag of _form.tags" >#{{ tag }}</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Mensagem</label>
+        <angular-editor [placeholder]="'Enter text here...'" #message="ngModel" name="message" [(ngModel)]="_form.message" [config]="config"></angular-editor>
+      </div>
+
+      <button class="btn btn-primary" [disabled]="!form.valid">
+        Enviar
+      </button>
+    </form>
+</div>

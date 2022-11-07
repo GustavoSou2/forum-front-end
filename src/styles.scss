@@ -2,6 +2,8 @@
 
 @use '@nebular/theme/styles/globals' as *;
 
+@import "~font-awesome/scss/font-awesome.scss";
+
 @include nb-install() {
   @include nb-theme-global();
 };
@@ -14,6 +16,7 @@
   border: 0;
   font-family: Arial;
   box-sizing: border-box;
+  text-decoration: none !important;
 }
 
 .d-row {
